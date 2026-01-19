@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #e8e8e8;
+  --bg-dark: #1a1a1a;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --text-light: #f0f0f0;
+  --accent-color: #000000;
+  --accent-red: #cc2222;
+  --accent-green: #22cc44;
+  --border-color: #ccc;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-sans: 'Rajdhani', sans-serif;
+  --font-sc: 'Noto Sans SC', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.sc-font {
+  font-family: var(--font-sc);
+}
+
+/* Utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Glitch Effect Animation */
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+@keyframes progress {
+  from { width: 0% }
+  to { width: 100% }
+}
+
+.animate-progress {
+  animation: progress 2s ease-in-out forwards;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 10s linear infinite;
+}
+
+/* Scanline effect */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0,0,0,0.02) 50%,
+    rgba(0,0,0,0.02)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+}
